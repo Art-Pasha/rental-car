@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 120px;
+    border-bottom: 1px solid var(--badge);
+    background: var(--white);
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+}
+
+.link:hover,
+.active {
+    color: var(--accent);
+    text-decoration: underline;
+}
