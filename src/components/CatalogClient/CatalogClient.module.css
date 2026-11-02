@@ -1,0 +1,37 @@
+.section {
+    padding: 240px 0 80px;
+}
+
+/* 240px тимчасово: місце під панель фільтрів */
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, 276px);
+    gap: 48px 32px;
+}
+
+.loadMore {
+    display: block;
+    width: 156px;
+    margin: 48px auto 0;
+    padding: 12px 0;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--main);
+    font-weight: 600;
+    transition: border-color 0.2s;
+}
+
+.loadMore:hover:not(:disabled) {
+    border-color: var(--accent-hover);
+}
+
+.loadMore:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.message {
+    text-align: center;
+    color: var(--error);
+}

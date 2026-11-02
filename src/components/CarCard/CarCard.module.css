@@ -1,0 +1,80 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    background: var(--white);
+}
+
+.imageWrap {
+    position: relative;
+    height: 268px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.imageWrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 20, 23, 0.5) 2.5%, rgba(18, 20, 23, 0) 41%);
+}
+
+.image {
+    object-fit: cover;
+}
+
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.model {
+    color: var(--accent);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.infoRow {
+    display: flex;
+    gap: 6px;
+}
+
+.infoRow li+li {
+    padding-left: 6px;
+    border-left: 1px solid var(--gray-light);
+}
+
+.button {
+    margin-top: 8px;
+    padding: 12px 0;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background: var(--accent-hover);
+}

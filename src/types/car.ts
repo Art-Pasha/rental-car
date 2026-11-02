@@ -8,22 +8,19 @@ export interface Car {
   description: string;
   fuelConsumption: string;
   engine: string;
-  accessories?: string[];
-  functionalities?: string[];
-  features?: string[];
+  features: string[];
   rentalPrice: string;
   rentalCompany: string;
-  address?: string;
-  location?: { country: string; city: string; address: string };
+  location: { country: string; city: string; address: string };
   rentalConditions: string[];
   mileage: number;
 }
 
 export interface CarsResponse {
   cars: Car[];
-  totalCars?: number;
-  page?: number | string;
-  totalPages?: number;
+  totalCars: number;
+  page: number;
+  totalPages: number;
 }
 
 export interface CarsFilters {
