@@ -6,6 +6,7 @@ import CarInfo from "@/components/CarInfo/CarInfo";
 import Loader from "@/components/Loader/Loader";
 import { useCar } from "@/hooks/useCars";
 import css from "./CarDetailsClient.module.css";
+import BookingForm from "@/components/BookingForm/BookingForm";
 
 export default function CarDetailsClient({ carId }: { carId: string }) {
   const { data: car, isLoading, isError } = useCar(carId);
@@ -42,7 +43,10 @@ export default function CarDetailsClient({ carId }: { carId: string }) {
                   priority
                 />
               </div>
-              {/* Форма оренди буде на кроці 6 */}
+              <div className={css.left}>
+                <div className={css.imageWrap}>{/* ... */}</div>
+                <BookingForm carId={car.id} />
+              </div>
             </div>
             <CarInfo car={car} />
           </div>
