@@ -3,7 +3,7 @@
 Frontend for a car rental service. Browse the catalog, filter cars by brand, price and mileage, open
 car details in a new tab and send a booking request.
 
-**Live demo:** <вставте посилання з Vercel>
+**Live demo:** (https://rental-car-three-puce.vercel.app/)
 
 ## Features
 
