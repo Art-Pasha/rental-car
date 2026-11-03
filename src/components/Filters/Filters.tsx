@@ -14,10 +14,14 @@ interface FiltersProps {
 }
 
 const PRICE_STEP = 10;
+const FALLBACK_PRICE_RANGE = { min: 30, max: 120 };
 
+// 30, 40, ... 120: кроки вирівнюються по PRICE_STEP, максимум завжди включений
 function buildPriceOptions(min: number, max: number) {
   const prices: number[] = [];
-  for (let price = min; price <= max; price += PRICE_STEP) prices.push(price);
+  for (let price = Math.ceil(min / PRICE_STEP) * PRICE_STEP; price <= max; price += PRICE_STEP) {
+    prices.push(price);
+  }
   if (prices[prices.length - 1] !== max) prices.push(max);
   return prices.map((price) => ({ value: String(price), label: String(price) }));
 }
@@ -33,7 +37,8 @@ export default function Filters({ onSearch, onReset }: FiltersProps) {
   const [maxMileage, setMaxMileage] = useState("");
 
   const brandOptions = (meta?.brands ?? []).map((item) => ({ value: item, label: item }));
-  const priceOptions = meta ? buildPriceOptions(meta.price.min, meta.price.max) : [];
+  const priceRange = meta?.price ?? FALLBACK_PRICE_RANGE;
+  const priceOptions = buildPriceOptions(priceRange.min, priceRange.max);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
