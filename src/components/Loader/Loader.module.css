@@ -3,7 +3,7 @@
     height: 72px;
     margin: 0 auto;
     border: 6px solid var(--gray-light);
-    border-top-color: var(--accent);
+    border-top-color: var(--light-blue);
     border-radius: 50%;
     animation: spin 0.9s linear infinite;
 }

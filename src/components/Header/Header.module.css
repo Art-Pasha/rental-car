@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 120px;
+    height: 68px;
+    padding: 0 120px;
     border-bottom: 1px solid var(--badge);
     background: var(--white);
 }
@@ -13,7 +14,7 @@
 }
 
 .logo span {
-    color: var(--accent);
+    color: var(--light-blue);
 }
 
 .menu {
@@ -23,6 +24,6 @@
 
 .link:hover,
 .active {
-    color: var(--accent);
+    color: var(--light-blue);
     text-decoration: underline;
 }

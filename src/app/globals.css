@@ -1,7 +1,7 @@
 :root {
   --main: #101828;
-  --accent: #00aad4;
-  --accent-hover: #0095ba;
+  --light-blue: #00aad4;
+  --dark-blue: #0095ba;
   --gray: #8d929a;
   --gray-light: #dadde1;
   --badge: #f2f4f7;
@@ -9,6 +9,11 @@
   --white: #fff;
   --error: #ec383b;
   --error-light: #ffdfdf;
+}
+
+:root {
+  --font-family: "Manrope", sans-serif;
+  --second-family: "Inter", sans-serif;
 }
 
 *,

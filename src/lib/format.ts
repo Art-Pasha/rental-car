@@ -5,3 +5,6 @@ export const formatMileage = (value: number) =>
 // "SUV" -> "Suv" (як у макеті)
 export const formatType = (type: string) =>
   type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
+
+export const formatDigits = (value: string) =>
+  value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
