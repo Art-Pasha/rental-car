@@ -1,0 +1,107 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+    flex: 1;
+    padding: 32px 24px;
+    border-radius: 16px;
+    background: var(--white);
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.titleBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.title {
+    margin: 0;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.article {
+    margin: 0;
+    color: var(--gray);
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+}
+
+.price {
+    margin: 0;
+    color: var(--accent);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.description {
+    margin: 0;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionTitle {
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.divider {
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-top: 1px solid var(--gray-light);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    display: flex;
+    flex-shrink: 0;
+}

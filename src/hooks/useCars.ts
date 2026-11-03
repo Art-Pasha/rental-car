@@ -1,5 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchCars } from "@/lib/carsApi";
+import { fetchCarById } from "@/lib/carsApi";
 import type { CarsFilters } from "@/types/car";
 
 export function useCars(filters: CarsFilters) {
@@ -12,5 +14,13 @@ export function useCars(filters: CarsFilters) {
       Number(lastPage.page) < lastPage.totalPages
         ? Number(lastPage.page) + 1
         : undefined,
+  });
+}
+
+export function useCar(carId: string) {
+  return useQuery({
+    queryKey: ["car", carId],
+    queryFn: () => fetchCarById(carId),
+    retry: false, // 404 не потрібно повторювати
   });
 }

@@ -40,8 +40,8 @@ export default function CatalogClient() {
 
         {cars.length > 0 && (
           <ul className={css.list}>
-            {cars.map((car) => (
-              <CarCard key={car.id} car={car} />
+            {cars.map((car, index) => (
+              <CarCard key={car.id} car={car} priority={index < 4} />
             ))}
           </ul>
         )}
@@ -60,3 +60,4 @@ export default function CatalogClient() {
     </div>
   );
 }
+

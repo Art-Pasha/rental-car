@@ -4,19 +4,13 @@ import { formatMileage, formatType } from "@/lib/format";
 import type { Car } from "@/types/car";
 import css from "./CarCard.module.css";
 
-export default function CarCard({ car }: { car: Car }) {
+export default function CarCard({ car, priority = false }: { car: Car; priority?: boolean }) {
   const { id, img, brand, model, year, rentalPrice, rentalCompany, location, type, mileage } = car;
 
   return (
     <li className={css.card}>
       <div className={css.imageWrap}>
-        <Image
-          src={img}
-          alt={`${brand} ${model}`}
-          fill
-          sizes="244px"
-          className={css.image}
-        />
+        <Image src={img} alt={`${brand} ${model}`} fill sizes="244px" className={css.image} priority={priority} />
       </div>
 
       <div className={css.titleRow}>
