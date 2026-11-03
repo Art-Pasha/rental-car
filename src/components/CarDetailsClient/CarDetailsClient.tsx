@@ -40,7 +40,7 @@ export default function CarDetailsClient({ carId }: { carId: string }) {
                   fill
                   sizes="640px"
                   className={css.image}
-                  priority
+                  loading="eager"
                 />
               </div>
               <div className={css.left}>

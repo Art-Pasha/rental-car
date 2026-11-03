@@ -10,7 +10,7 @@ export default function CarCard({ car, priority = false }: { car: Car; priority?
   return (
     <li className={css.card}>
       <div className={css.imageWrap}>
-        <Image src={img} alt={`${brand} ${model}`} fill sizes="244px" className={css.image} priority={priority} />
+        <Image src={img} alt={`${brand} ${model}`} fill sizes="244px" className={css.image} loading={priority ? "eager" : "lazy"} />
       </div>
 
       <div className={css.titleRow}>
