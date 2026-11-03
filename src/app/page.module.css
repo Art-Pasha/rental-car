@@ -1,43 +1,60 @@
 .hero {
   position: relative;
-  height: 700px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  height: 700px;
+  margin-top: 4px;
   padding-bottom: 60px;
   background: url("/hero.jpg") center / cover no-repeat;
   color: var(--white);
-  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.texts {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  text-align: center;
 }
 
 .title {
   margin: 0;
   font-size: 60px;
   line-height: 72px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .subtitle {
   margin: 0;
   font-size: 24px;
   line-height: 32px;
+  font-weight: 600;
 }
 
 .button {
-  margin-top: 40px;
   width: 276px;
   padding: 12px 0;
   border-radius: 12px;
   background: var(--light-blue);
   color: var(--white);
   font-weight: 600;
+  text-align: center;
   transition: background-color 0.2s;
 }
 

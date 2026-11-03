@@ -4,18 +4,18 @@ import { useState } from "react";
 import Image from "next/image";
 import CarCard from "@/components/CarCard/CarCard";
 import Filters from "@/components/Filters/Filters";
-import Loader from "@/components/Loader/Loader";
+import LoadingCard from "@/components/LoadingCard/LoadingCard";
 import { useCars } from "@/hooks/useCars";
 import type { CarsFilters } from "@/types/car";
 import css from "./CatalogClient.module.css";
 
 export default function CatalogClient() {
   const [filters, setFilters] = useState<CarsFilters>({});
-  const { data, isLoading, isError, hasNextPage, isFetchingNextPage, fetchNextPage } =
-    useCars(filters);
+  const { data, isFetching, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useCars(filters);
 
   const cars = data?.pages.flatMap((page) => page.cars) ?? [];
-  const isEmpty = !isLoading && !isError && cars.length === 0;
+  const isRefreshing = isFetching && !isFetchingNextPage; // перший запит або нові фільтри
+  const isEmpty = !isRefreshing && !isError && cars.length === 0;
 
   return (
     <div className={css.page}>
@@ -23,8 +23,15 @@ export default function CatalogClient() {
         <Filters onSearch={setFilters} onReset={() => setFilters({})} />
       </div>
 
-      <section className="container">
-        {isLoading && <Loader />}
+      <section className={`container ${css.results}`}>
+        <h1 className="visually-hidden">Car catalog</h1>
+
+        {isRefreshing && (
+          <div className={css.overlay}>
+            <LoadingCard />
+          </div>
+        )}
+      
         {isError && <p className={css.message}>Something went wrong. Please try again.</p>}
 
         {isEmpty && (

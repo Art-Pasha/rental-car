@@ -67,7 +67,7 @@
 }
 
 .input:focus {
-    border-color: var(--accent);
+    border-color: var(--light-blue);
 }
 
 .textarea {
@@ -125,14 +125,14 @@
     padding: 12px 0;
     border: none;
     border-radius: 12px;
-    background: var(--accent);
+    background: var(--light-blue);
     color: var(--white);
     font-weight: 600;
     transition: background-color 0.2s;
 }
 
 .button:hover:not(:disabled) {
-    background: var(--accent-hover);
+    background: var(--dark-blue);
 }
 
 .button:disabled {

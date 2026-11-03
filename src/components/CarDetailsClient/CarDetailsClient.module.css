@@ -52,12 +52,12 @@
     width: 156px;
     padding: 12px 0;
     border-radius: 12px;
-    background: var(--accent);
+    background: var(--light-blue);
     color: var(--white);
     font-weight: 600;
     transition: background-color 0.2s;
 }
 
 .backLink:hover {
-    background: var(--accent-hover);
+    background: var(--dark-blue);
 }

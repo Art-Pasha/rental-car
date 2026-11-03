@@ -14,9 +14,9 @@ export default function CarCard({ car, priority = false }: { car: Car; priority?
       </div>
 
       <div className={css.titleRow}>
-        <h3 className={css.title}>
+        <h2 className={css.title}>
           {brand} <span className={css.model}>{model}</span>, {year}
-        </h3>
+        </h2>
         <p>${rentalPrice}</p>
       </div>
 
