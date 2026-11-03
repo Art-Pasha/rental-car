@@ -78,3 +78,19 @@
     padding-top: 48px;
     background: rgba(245, 245, 245, 0.8);
 }
+
+.resetButton {
+    width: 156px;
+    margin-top: 40px;
+    padding: 12px 0;
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--main);
+    font-weight: 600;
+    transition: border-color 0.2s;
+}
+
+.resetButton:hover {
+    border-color: var(--accent-hover);
+}

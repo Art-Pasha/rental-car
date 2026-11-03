@@ -12,6 +12,12 @@ import css from "./CatalogClient.module.css";
 export default function CatalogClient() {
   const [filters, setFilters] = useState<CarsFilters>({});
   const { data, isFetching, isError, hasNextPage, isFetchingNextPage, fetchNextPage } = useCars(filters);
+  const [resetKey, setResetKey] = useState(0)
+
+  const handleReset = () => {
+  setFilters({});
+  setResetKey((key) => key + 1); // перемонтовує Filters і очищає поля
+};
 
   const cars = data?.pages.flatMap((page) => page.cars) ?? [];
   const isRefreshing = isFetching && !isFetchingNextPage; // перший запит або нові фільтри
@@ -21,6 +27,7 @@ export default function CatalogClient() {
     <div className={css.page}>
       <div className={css.filters}>
         <Filters onSearch={setFilters} onReset={() => setFilters({})} />
+        <Filters key={resetKey} onSearch={setFilters} onReset={handleReset} />
       </div>
 
       <section className={`container ${css.results}`}>
@@ -42,6 +49,9 @@ export default function CatalogClient() {
               We couldn’t find any cars that match your current filters. Try changing
               your search criteria or reset the filters.
             </p>
+            <button type="button" className={css.resetButton} onClick={handleReset}>
+              Reset filters
+            </button>
           </div>
         )}
 
