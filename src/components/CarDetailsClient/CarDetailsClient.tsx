@@ -41,12 +41,9 @@ export default function CarDetailsClient({ carId }: { carId: string }) {
                   sizes="640px"
                   className={css.image}
                   loading="eager"
-                />
-              </div>
-              <div className={css.left}>
-                <div className={css.imageWrap}>{/* ... */}</div>
-                <BookingForm carId={car.id} />
-              </div>
+                />              
+              </div>                
+              <BookingForm carId={car.id} />              
             </div>
             <CarInfo car={car} />
           </div>
