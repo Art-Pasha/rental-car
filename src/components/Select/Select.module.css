@@ -1,71 +1,101 @@
 .root {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fixed width from tablet when --select-width is set by JS */
+@media (min-width: 768px) {
+  .root[data-has-width="true"] {
+    width: var(--select-width, 100%);
+    max-width: var(--select-width, 100%);
+    flex-shrink: 0;
+  }
 }
 
 .label {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    color: var(--gray);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--gray);
 }
 
 .trigger {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
-    width: 100%;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 12px;
-    background: var(--white);
-    color: var(--main);
-    font-weight: 500;
-    text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--main);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger:focus {
+  outline: 1px solid var(--light-blue);
+  outline-offset: -1px;
 }
 
 .list {
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    padding: 13px 17px;
-    border-radius: 12px;
-    background: var(--white);
-    box-shadow: 0 4px 36px rgba(0, 0, 0, 0.02);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gray-light) transparent;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 17px;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 4px 36px rgba(0, 0, 0, 0.02);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-light) transparent;
 }
 
 .list::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .list::-webkit-scrollbar-thumb {
-    background: var(--gray-light);
-    border-radius: 10px;
+  background: var(--gray-light);
+  border-radius: 10px;
 }
 
 .item,
 .itemActive {
-    padding: 0;
-    border: none;
-    background: none;
-    font-weight: 500;
-    text-align: left;
-    color: var(--gray);
-    transition: color 0.2s;
+  padding: 0;
+  border: none;
+  background: none;
+  font-weight: 500;
+  text-align: left;
+  color: var(--gray);
+  transition: color 0.2s;
+  cursor: pointer;
 }
 
 .item:hover,
 .itemActive {
-    color: var(--main);
+  color: var(--main);
+}
+
+@media (min-width: 768px) {
+  .trigger {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .trigger {
+    gap: 32px;
+  }
 }

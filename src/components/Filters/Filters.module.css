@@ -1,107 +1,196 @@
+/* Mobile-first filters */
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-    width: 924px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .row {
-    display: flex;
-    align-items: flex-end;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
 }
 
 .fields {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
 }
 
 .mileage {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 .label {
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 400;
-    color: var(--gray);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--gray);
 }
 
 .range {
-    display: flex;
-    height: 44px;
+  display: flex;
+  height: 44px;
+  width: 100%;
 }
 
 .from,
 .to {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    width: 160px;
-    padding: 0 24px;
-    background: var(--white);
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  padding: 0 16px;
+  background: var(--white);
+  font-weight: 500;
 }
 
 .from {
-    border-radius: 12px 0 0 12px;
-    border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
+  border-right: 1px solid var(--gray-light);
 }
 
 .to {
-    border-radius: 0 12px 12px 0;
+  border-radius: 0 12px 12px 0;
 }
 
 .from:focus-within,
 .to:focus-within {
-    outline: 1px solid var(--light-blue);
-    outline-offset: -1px;
+  outline: 1px solid var(--light-blue);
+  outline-offset: -1px;
 }
 
 .from input,
 .to input {
-    width: 100%;
-    min-width: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--main);
-    font: inherit;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--main);
+  font: inherit;
 }
 
 .search {
-    width: 156px;
-    padding: 12px 0;
-    border: none;
-    border-radius: 12px;
-    background: var(--light-blue);
-    color: var(--white);
-    font-weight: 600;
-    transition: background-color 0.2s;
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 12px;
+  background: var(--light-blue);
+  color: var(--white);
+  font-weight: 600;
+  transition: background-color 0.2s;
 }
 
 .search:hover {
-    background: var(--dark-blue);
+  background: var(--dark-blue);
 }
 
 .clear {
-    width: 156px;
-    padding: 0;
-    border: none;
-    background: none;
-    color: var(--gray);
-    font-weight: 500;
-    text-align: center;
-    transition: color 0.2s;
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  background: none;
+  color: var(--gray);
+  font-weight: 500;
+  text-align: center;
+  transition: color 0.2s;
 }
 
 .clear:hover {
-    color: var(--main);
+  color: var(--main);
+}
+
+/* 375px+ — slightly more comfortable spacing */
+@media (min-width: 375px) {
+  .from,
+  .to {
+    padding: 0 20px;
+  }
+}
+
+/* Tablet 768px+ — two columns for fields, search beside */
+@media (min-width: 768px) {
+  .form {
+    width: 100%;
+    max-width: 720px;
+    align-items: flex-end;
+  }
+
+  .row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .fields {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .mileage {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .from,
+  .to {
+    width: 50%;
+    flex: 1;
+    padding: 0 24px;
+  }
+
+  .search {
+    width: 156px;
+    flex-shrink: 0;
+  }
+
+  .clear {
+    width: 156px;
+  }
+}
+
+/* Desktop 1440px+ — original layout */
+@media (min-width: 1440px) {
+  .form {
+    width: 924px;
+    max-width: 924px;
+    gap: 8px;
+  }
+
+  .row {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .fields {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .mileage {
+    width: 320px;
+  }
+
+  .from,
+  .to {
+    width: 160px;
+    flex: none;
+  }
 }

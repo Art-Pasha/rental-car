@@ -15,7 +15,8 @@ interface SelectProps {
   options: Option[];
   value: string;
   onChange: (value: string) => void;
-  width: number;
+  /** Desktop width in px. On mobile ignored (full width). */
+  width?: number;
   listHeight?: number;
   formatSelected?: (label: string) => string;
 }
@@ -34,7 +35,6 @@ export default function Select({
   const rootRef = useRef<HTMLDivElement>(null);
   const labelId = useId();
 
-  // Закриваємо список по кліку поза ним і по Escape
   useEffect(() => {
     if (!isOpen) return;
 
@@ -60,8 +60,20 @@ export default function Select({
       : selected.label
     : placeholder;
 
+  // Fixed width only from tablet up; mobile stays 100%
+  const style: React.CSSProperties = width
+    ? ({
+        ["--select-width" as string]: `${width}px`,
+      } as React.CSSProperties)
+    : {};
+
   return (
-    <div ref={rootRef} className={css.root} style={{ width }}>
+    <div
+      ref={rootRef}
+      className={css.root}
+      style={style}
+      data-has-width={width ? "true" : undefined}
+    >
       <span id={labelId} className={css.label}>
         {label}
       </span>
