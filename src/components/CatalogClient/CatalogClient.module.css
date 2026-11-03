@@ -83,7 +83,7 @@
     width: 156px;
     margin-top: 40px;
     padding: 12px 0;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--light-blue);
     border-radius: 12px;
     background: transparent;
     color: var(--main);
@@ -92,5 +92,5 @@
 }
 
 .resetButton:hover {
-    border-color: var(--accent-hover);
+    border-color: var(--dark-blue);
 }
