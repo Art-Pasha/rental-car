@@ -25,8 +25,7 @@ export default function CatalogClient() {
 
   return (
     <div className={css.page}>
-      <div className={css.filters}>
-        <Filters onSearch={setFilters} onReset={() => setFilters({})} />
+      <div className={css.filters}>        
         <Filters key={resetKey} onSearch={setFilters} onReset={handleReset} />
       </div>
 
